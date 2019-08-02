@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% set active_page = "milk" %}
+{% block content %}
+<div class="container shadow-lg p-3 mb-5 bg-white rounded">
+<center>
+<h2>Total cartons of milk in stock: {{ total_milk }}</h2>
+</center>
+</div>
+
+
+<div class="row">
+  {% for m in milk %}
+
+   <div class="col-md-4 col-lg-4 col-sm-12">
+     <div class="card full-height shadow-lg p-3 mb-5 bg-white rounded">
+     
+        <div class="card-body">
+                  <center>
+                    <p class="card-text"> 
+                      <dl>
+                      <dt><h3>Cow Id: {{ m.cow_id}}</h3></dt>
+                      <dd>Cartons: {{ m.cartons }}</dd>
+                      <dd>Cow Age: {{ m.cow_age}}</dd>
+                      <dd>Cow Breed: {{ m.cow_breed}}</dd>
+                      <dd>Vendor: {{ m.vendor}}</dd>
+                      <dt>Expiration:</dt>
+                      <dd>{{ m.expiration_date }}</dd>
+                      </dl>
+                    </p>
+                  </center>
+                </div>
+        </div>
+  
+      </div>
+ 
+  {% endfor %}
+</div>
+
+{% endblock %} 

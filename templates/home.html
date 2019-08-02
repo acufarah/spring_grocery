@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% set active_page = "home" %}
+{% block content %}
+<div class="container shadow-lg p-3 mb-5 bg-white rounded">
+<center>
+<h1>Home</h1>
+<center>
+  <p class="card-text"> 
+    <dl>
+      <dt><h3>Total items in store: {{ total_items }}</h3></dt>
+        <dd>Total apples: {{ total_apples }}</dd>
+        <dd>Total bananas: {{ total_bananas}}</dd>
+        <dd>Total cartons of milk: {{ total_milk }}</dd>
+        <dd>Total sticks of butter: {{ total_sticks }}</dd>
+      </dl>
+  </p>
+  <br>
+  <h4>Enter Below to Delete Sold Fruit Items</h4>
+  <form class="my-2 my-lg-0" method="POST" action="delete_sold_fruit">
+    <input type='text' name='item_id' placeholder = 'Enter item id here' class="form-control"><br>
+    <button class="btn btn-success btn-block my-2 my-sm-0" type="submit" value="delete">Delete</button>
+  </form>
+  <br>
+  <br>
+  <h4>Click Below to Delete Expired Items From Store</h4>
+  <form class="my-2 my-lg-0" method="POST" action="delete_expired_items">
+    <input type='hidden' name='delete_expired_items' value = 'Delete' class="form-control"><br>
+    <button class="btn btn-success btn-block my-2 my-sm-0" type="submit" value="delete">Delete</button>
+  </form>
+  <br>
+  <br>
+  <h4>Enter Cow Id and Number of Cartons Used Below to Update Number of Milk Cartons Used For Butter</h4>
+  <form class="my-2 my-lg-0" method="POST" action="update_milk">
+    <input type='text' name='cow_id' placeholder = 'Enter cow id here' class="form-control"><br>
+    <input type='text' name='number_cartons_used' placeholder = 'Enter number of cartons used from specific cow here' class="form-control"><br>
+    <button class="btn btn-success btn-block my-2 my-sm-0" type="submit" value="update">Update</button>
+  </form>
+  </center>
+</center>
+</div>
+
+
+
+
+{% endblock %} 

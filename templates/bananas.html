@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% set active_page = "bananas" %}
+{% block content %}
+<div class="container shadow-lg p-3 mb-5 bg-white rounded">
+<center>
+<h2>Total number of bananas in stock: {{ total }}</h2>
+</center>
+</div>
+
+
+<div class="row">
+  {% for banana in bananas %}
+
+   <div class="col-md-4 col-lg-4 col-sm-12">
+     <div class="card full-height shadow-lg p-3 mb-5 bg-white rounded">
+     
+        <div class="card-body">
+                  <center>
+                    <p class="card-text"> 
+                      <dl>
+                      <dt><h3>Banana Id: {{ banana.banana_id}}</h3></dt>
+                      <dd>Generation Number: {{ banana.generation_number }}</dd>
+                      <dd>Variety: {{ banana.variety}}</dd>
+                      <dd>Tree Id: {{ banana.tree_id}}</dd>
+                      <dt>Expiration:</dt>
+                      <dd>{{ banana.expiration_date }}</dd>
+                      </dl>
+                    </p>
+                  </center>
+                </div>
+        </div>
+  
+      </div>
+ 
+  {% endfor %}
+</div>
+
+{% endblock %} 

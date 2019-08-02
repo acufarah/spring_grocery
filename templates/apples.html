@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% set active_page = "apples" %}
+{% block content %}
+<div class="container shadow-lg p-3 mb-5 bg-white rounded">
+<center>
+<h2>Total number of apples in stock: {{ total }}</h2>
+</center>
+</div>
+
+
+<div class="row">
+  {% for apple in apples %}
+
+   <div class="col-md-4 col-lg-4 col-sm-12">
+     <div class="card full-height shadow-lg p-3 mb-5 bg-white rounded">
+     
+        <div class="card-body">
+                  <center>
+                    <p class="card-text"> 
+                      <dl>
+                      <dt><h3>Apple Id: {{ apple.apple_id}}</h3></dt>
+                      <dd>Pollination Group: {{ apple.pollination_group }}</dd>
+                      <dd>Variety: {{ apple.variety}}</dd>
+                      <dd>Color: {{ apple.color}}</dd>
+                      <dd>Tree Id: {{ apple.tree_id}}</dd>
+                      <dd>Tree Age: {{ apple.age_of_tree}}</dd>
+                      <dt>Expiration:</dt>
+                      <dd>{{ apple.expiration_date }}</dd>
+                      </dl>
+                    </p>
+                  </center>
+                </div>
+        </div>
+  
+      </div>
+ 
+  {% endfor %}
+</div>
+
+{% endblock %} 
